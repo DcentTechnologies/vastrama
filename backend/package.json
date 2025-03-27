@@ -1,0 +1,14 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend has all the required logics, route handling, database management",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sawan Kumar Khanna",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
