@@ -1,0 +1,9 @@
+#sale-banner {
+    width: 100%;
+    background-color: #38b6ff;
+    text-align: center;
+}
+
+#right-sale {
+    float: right;
+}

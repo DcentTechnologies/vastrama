@@ -1,5 +1,6 @@
 {
   "name": "backend",
+  "type": "module",
   "version": "1.0.0",
   "description": "backend has all the required logics, route handling, database management",
   "main": "server.js",
@@ -9,6 +10,8 @@
   "author": "Sawan Kumar Khanna",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^2.2.0",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2"
   }
 }
