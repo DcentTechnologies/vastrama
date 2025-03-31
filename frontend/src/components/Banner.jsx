@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const images = [
-  "src/assets/images/banner1.jpg",
-  "src/assets/images/banner2.jpg",
-  "src/assets/images/banner3.jpg",
-  "src/assets/images/banner4.jpg",
-  "src/assets/images/banner5.jpg",
+  "/images/banner1.jpg",
+  "/images/banner2.jpg",
+  "/images/banner3.jpg",
+  "/images/banner4.jpg",
+  "/images/banner5.jpg",
 ];
 
 const Banner = () => {

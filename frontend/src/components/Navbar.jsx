@@ -5,40 +5,28 @@ import SlideOver from "./SlideOver";
 const Navbar = () => {
   const [showSlideOver, setShowSlideOver] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isLoginForm, setIsLoginForm] = useState(true);
 
-  const navLinks = (
-    <>
-      <a href="#men" className="hover:text-black block md:inline">
-        Men
-      </a>
-      <a href="#women" className="hover:text-black block md:inline">
-        Women
-      </a>
-      <a href="#kids" className="hover:text-black block md:inline">
-        Kids
-      </a>
-      <a href="#accessories" className="hover:text-black block md:inline">
-        Accessories
-      </a>
-    </>
-  );
+  const openSlideOver = (isLogin) => {
+    setIsLoginForm(isLogin);
+    setShowSlideOver(true);
+  };
 
   return (
     <>
       <nav className="w-full bg-white shadow-md px-6 py-3 flex items-center justify-between relative">
         {/* Left: Logo + Brand */}
         <div className="flex items-center gap-2">
-          <img
-            src="/vite.svg"
-            alt="Logo"
-            className="w-8 h-8 rounded-full"
-          />
+          <img src="src/assets/images/logo2.png" alt="Logo" className="w-8 h-8 rounded-full" />
           <span className="text-xl font-bold text-gray-800">Vastrama.com</span>
         </div>
 
         {/* Center: Nav Links (Desktop) */}
         <div className="hidden md:flex gap-6 font-medium text-gray-700">
-          {navLinks}
+          <a href="#men" className="hover:text-black">Men</a>
+          <a href="#women" className="hover:text-black">Women</a>
+          <a href="#kids" className="hover:text-black">Kids</a>
+          <a href="#accessories" className="hover:text-black">Accessories</a>
         </div>
 
         {/* Right: Search + Cart + Auth */}
@@ -61,13 +49,13 @@ const Navbar = () => {
           {/* Auth Buttons */}
           <div className="hidden sm:flex gap-2">
             <button
-              onClick={() => setShowSlideOver(true)}
+              onClick={() => openSlideOver(true)}
               className="text-sm px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-100"
             >
               Login
             </button>
             <button
-              onClick={() => setShowSlideOver(true)}
+              onClick={() => openSlideOver(false)}
               className="text-sm px-3 py-1 bg-black text-white rounded-md hover:bg-gray-800"
             >
               Sign Up
@@ -83,33 +71,6 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-
-      {/* Mobile Nav Links */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white px-6 py-4 shadow-md flex flex-col gap-3 text-gray-700 font-medium">
-          {navLinks}
-          <div className="flex flex-col gap-2 mt-2 sm:hidden">
-            <button
-              onClick={() => {
-                setShowSlideOver(true);
-                setMobileMenuOpen(false);
-              }}
-              className="text-sm px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-100"
-            >
-              Login
-            </button>
-            <button
-              onClick={() => {
-                setShowSlideOver(true);
-                setMobileMenuOpen(false);
-              }}
-              className="text-sm px-3 py-1 bg-black text-white rounded-md hover:bg-gray-800"
-            >
-              Sign Up
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* SlideOver Auth Panel */}
       <SlideOver isOpen={showSlideOver} onClose={() => setShowSlideOver(false)} />
