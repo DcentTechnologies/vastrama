@@ -33,7 +33,7 @@ const Navbar = () => {
             alt="Logo"
             className="w-8 h-8 rounded-full"
           />
-          <span className="text-xl font-bold text-gray-800">vastrama.com</span>
+          <span className="text-xl font-bold text-gray-800">VASTRAMA.com</span>
         </div>
 
         {/* Center: Nav Links (Desktop) */}
