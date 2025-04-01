@@ -17,7 +17,7 @@ const Navbar = () => {
       <nav className="w-full bg-white shadow-md px-6 py-3 flex items-center justify-between relative">
         {/* Left: Logo + Brand */}
         <div className="flex items-center gap-2">
-          <img src="src/assets/images/logo2.png" alt="Logo" className="w-8 h-8 rounded-full" />
+          <img src="/images/logo2.png" alt="Logo" className="w-8 h-8 rounded-full" />
           <span className="text-xl font-bold text-gray-800">Vastrama.com</span>
         </div>
 
