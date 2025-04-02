@@ -17,7 +17,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const allowedOrigins = ["https://vastrama.com", "https://www.vastrama.com"];
+const allowedOrigins = ["http://localhost:5173", "https://vastrama.com", "https://www.vastrama.com"];
 app.use(cors({
   origin: allowedOrigins,
   credentials: true
