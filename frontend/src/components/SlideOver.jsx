@@ -22,14 +22,15 @@ const SlideOver = ({ isOpen, onClose }) => {
 
       {/* Sidebar */}
       <div className="relative h-full w-full sm:w-[400px] bg-white p-6 shadow-lg transform transition-transform duration-300">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-semibold text-gray-800">
+        {/* <div className="flex justify-between items-center mb-6"> */}
+          {/* <h2 className="text-xl font-semibold text-gray-800">
             {isLogin ? "Login" : "Sign Up"}
-          </h2>
-          <button onClick={onClose}>
-            <X className="w-6 h-6 text-gray-500 hover:text-red-500" />
-          </button>
-        </div>
+          </h2> */}
+        <div className="flex justify-end items-center mb-6">
+  <button onClick={onClose} className="ml-auto">
+    <X className="w-6 h-6 text-gray-500 hover:text-red-500" />
+  </button>
+</div>
 
         {/* Toggle Between Login and Signup */}
         {isLogin ? (
