@@ -6,6 +6,7 @@ import Footer from './Footer'
 import Categories from './Categories'
 import Subscription from './Subscription'
 import Recommendations from './Recommedation'
+import StoreNearMe from './Storenearme'
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
    <Banner />
    <Categories />
    <Recommendations />
+   <StoreNearMe />
    <Subscription />
    <Footer />
    </>

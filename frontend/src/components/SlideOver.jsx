@@ -4,7 +4,7 @@ import Login from "./Login";
 import Signup from "./Signup";
 
 const SlideOver = ({ isOpen, onClose }) => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   return (
     <div

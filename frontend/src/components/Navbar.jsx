@@ -1,15 +1,26 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Menu, X, ShoppingCart, Search } from "lucide-react";
+import { logoutUser } from "../redux/actions/userActions";
 import SlideOver from "./SlideOver";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [showSlideOver, setShowSlideOver] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
 
   const openSlideOver = (isLogin) => {
     setIsLogin(isLogin);
     setShowSlideOver(true);
+  };
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate("/");
   };
 
   return (
@@ -48,34 +59,50 @@ const Navbar = () => {
 
           {/* Desktop Auth */}
           <div className="hidden sm:flex gap-2">
-            <button
-              onClick={() => openSlideOver(true)}
-              className="text-sm px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-100"
-            >
-              Login
-            </button>
-            <button
-              onClick={() => openSlideOver(false)}
-              className="text-sm px-3 py-1 bg-black text-white rounded-md hover:bg-gray-800"
-            >
-              Sign Up
-            </button>
+            {user.isAuthenticated ? (
+              <>
+                <button
+                  onClick={() => navigate("/profile")}
+                  className="text-sm px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-700"
+                >
+                  Profile
+                </button>
+                <button
+                  onClick={handleLogout}
+                  className="text-sm px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-100"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => openSlideOver(true)}
+                  className="text-sm px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-100"
+                >
+                  Login
+                </button>
+                <button
+                  onClick={() => openSlideOver(false)}
+                  className="text-sm px-3 py-1 bg-black text-white rounded-md hover:bg-gray-800"
+                >
+                  Sign Up
+                </button>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
           <button
             className="md:hidden focus:outline-none"
-            onClick={() => {
-              console.log("Menu Clicked, state:", mobileMenuOpen);
-              setMobileMenuOpen((prev) => !prev);
-            }}
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </nav>
 
-      {/* ✅ Mobile Menu (Fixed for Click) */}
+      {/* ✅ Mobile Menu */}
       <div
         className={`fixed top-0 left-0 w-full h-screen bg-white z-50 p-6 transform transition-transform ${
           mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
@@ -84,10 +111,7 @@ const Navbar = () => {
         {/* Close Button */}
         <button
           className="absolute top-4 right-6 text-gray-600"
-          onClick={() => {
-            console.log("Close Clicked");
-            setMobileMenuOpen(false);
-          }}
+          onClick={() => setMobileMenuOpen(false)}
         >
           <X className="w-6 h-6" />
         </button>
@@ -102,19 +126,38 @@ const Navbar = () => {
 
         <hr className="my-4" />
 
-        {/* Auth Buttons */}
-        <button
-          onClick={() => { openSlideOver(true); setMobileMenuOpen(false); }}
-          className="w-full text-sm px-3 py-2 border border-gray-300 rounded-md hover:bg-gray-100"
-        >
-          Login
-        </button>
-        <button
-          onClick={() => { openSlideOver(true); setMobileMenuOpen(false); }}
-          className="w-full text-sm px-3 py-2 bg-black text-white rounded-md hover:bg-gray-800"
-        >
-          Sign Up
-        </button>
+        {/* Mobile Auth Buttons */}
+        {user.isAuthenticated ? (
+          <>
+            <button
+              onClick={() => { navigate("/profile"); setMobileMenuOpen(false); }}
+              className="w-full text-sm px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700"
+            >
+              Profile
+            </button>
+            <button
+              onClick={() => { handleLogout(); setMobileMenuOpen(false); }}
+              className="w-full text-sm px-3 py-2 border border-gray-300 rounded-md hover:bg-gray-100"
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              onClick={() => { openSlideOver(true); setMobileMenuOpen(false); }}
+              className="w-full text-sm px-3 py-2 border border-gray-300 rounded-md hover:bg-gray-100"
+            >
+              Login
+            </button>
+            <button
+              onClick={() => { openSlideOver(false); setMobileMenuOpen(false); }}
+              className="w-full text-sm px-3 py-2 bg-black text-white rounded-md hover:bg-gray-800"
+            >
+              Sign Up
+            </button>
+          </>
+        )}
       </div>
 
       {/* SlideOver Auth Panel */}

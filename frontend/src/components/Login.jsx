@@ -1,24 +1,46 @@
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../redux/actions/userActions';
+import { useNavigate } from "react-router-dom";
+
 const Login = ({ switchToSignup, onClose }) => {
+
+    console.log("Hello");
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleLogin = (e) => {
+      console.log("sdfssdfs");
+        e.preventDefault();
+        console.log(email, password);
+        dispatch(loginUser({ email, password }));
+        navigate('/');
+    };
+    
   return (
     <div>
-      <h2 className="text-xl font-semibold text-gray-800">Login</h2>
-      <form className="flex flex-col gap-4 mt-4">
+      <form className="flex flex-col gap-4 mt-4" onSubmit={handleLogin}>
         <input
           type="email"
           placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="border px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"
+          required
         />
         <input
           type="password"
           placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           className="border px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"
+          required
         />
         <button
           type="submit"
-          onClick={(e) => {
-            e.preventDefault();
-            onClose();
-          }}
           className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition"
         >
           Login

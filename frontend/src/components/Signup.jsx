@@ -1,7 +1,6 @@
 const Signup = ({ switchToLogin, onClose }) => {
   return (
     <div>
-      <h2 className="text-xl font-semibold text-gray-800">Sign Up</h2>
       <form className="flex flex-col gap-4 mt-4">
         <input
           type="text"
