@@ -4,6 +4,7 @@ import { Menu, X, ShoppingCart, Search } from "lucide-react";
 import { logoutUser } from "../redux/actions/userActions";
 import SlideOver from "./SlideOver";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [showSlideOver, setShowSlideOver] = useState(false);
@@ -11,7 +12,7 @@ const Navbar = () => {
   const [isLogin, setIsLogin] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
 
   const openSlideOver = (isLogin) => {
     setIsLogin(isLogin);
@@ -59,7 +60,7 @@ const Navbar = () => {
 
           {/* Desktop Auth */}
           <div className="hidden sm:flex gap-2">
-            {user.isAuthenticated ? (
+            {user ? (
               <>
                 <button
                   onClick={() => navigate("/profile")}
@@ -127,7 +128,7 @@ const Navbar = () => {
         <hr className="my-4" />
 
         {/* Mobile Auth Buttons */}
-        {user.isAuthenticated ? (
+        {user ? (
           <>
             <button
               onClick={() => { navigate("/profile"); setMobileMenuOpen(false); }}

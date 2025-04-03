@@ -4,11 +4,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const categories = [
     {
       name: "Men",
-      image: "https://source.unsplash.com/100x100/?men,clothing,fashion",
+      image: "/images/men.jpeg",
     },
     {
       name: "Women",
-      image: "https://source.unsplash.com/100x100/?women,clothing,fashion",
+      image: "/images/women.jpeg",
     },
     {
       name: "Kids",

@@ -13,10 +13,9 @@ const Login = ({ switchToSignup, onClose }) => {
     const navigate = useNavigate();
 
     const handleLogin = (e) => {
-      console.log("sdfssdfs");
         e.preventDefault();
-        console.log(email, password);
         dispatch(loginUser({ email, password }));
+        onClose();
         navigate('/');
     };
     

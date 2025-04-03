@@ -3,6 +3,7 @@ import API from "../../utils/axiosInstance";
 export const registerUser = (userData) => async (dispatch) => {
     try {
         const { data } = await API.post('/api/auth/register', userData);
+        // console.log(data);
             dispatch({ type: 'REGISTER_USER', payload: data });
             localStorage.setItem("token", data.token);
             localStorage.setItem("user", JSON.stringify(data.user));
