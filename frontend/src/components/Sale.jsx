@@ -1,6 +1,5 @@
 import React from 'react'
 import { Phone } from "lucide-react";
-import "../assets/css/sale.css"
 
 const Sale = () => {
   return (
