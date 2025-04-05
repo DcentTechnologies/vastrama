@@ -30,7 +30,7 @@ const Navbar = () => {
         {/* Left: Logo */}
         <div className="flex items-center gap-2">
           <img src="/images/logo2.png" alt="Logo" className="w-8 h-8 rounded-full" />
-          <span className="text-xl font-bold text-gray-800">Vastrama.com</span>
+          <span className="text-xl font-bold text-gray-800">Vastrama....com</span>
         </div>
 
         {/* Desktop Nav */}

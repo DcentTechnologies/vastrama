@@ -10,7 +10,7 @@ const HomeNavbar = () => {
       {/* Left: Logo & Name */}
       <div className="flex items-center gap-2">
         <img src="/images/logo.png" alt="Logo" className="w-8 h-8 rounded-full" />
-        <span className="text-xl font-bold text-gray-800">Vastrama Seller Point</span>
+        <span className="text-xl font-bold text-gray-800">Vastrama... Seller Point</span>
       </div>
 
       {/* Center: Navigation (Hidden on Mobile) */}
