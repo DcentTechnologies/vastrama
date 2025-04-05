@@ -3,3 +3,6 @@ backend/package-lock.json
 
 frontend/node_modules/*
 frontend/package-lock.json
+
+seller/node_modules/*
+seller/package-lock.json

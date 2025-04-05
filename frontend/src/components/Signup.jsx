@@ -13,6 +13,7 @@ const Signup = ({ switchToLogin, onClose }) => {
     const handleSignup = (e) => {
       e.preventDefault();
       dispatch(registerUser({ name, email, password }));
+      onClose();
       navigate('/');
   };
   return (
